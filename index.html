@@ -2,19 +2,38 @@
 
 <html>
 
-<script type='text/javascript'>
-
-document.write("<style>header img {width: " + screen.width/4 + "px;}</style>")
-
-</script>
-
 <head>
 	<meta charset='utf-8'>
 	<title>Polotix | Home</title>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel='stylesheet' type='text/css' href='resources/css/main.css'>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
 </head>
+
+<script type='text/javascript'>
+
+document.write("<style>header img {width: " + screen.width/4 + "px;}</style>");
+
+$(document).ready(function() {
+    $(".searchLink").click(function(){
+	    if($("#searchBoxSection").hasClass("disabled")){
+	    	$("#searchBoxSection").removeClass("disabled");
+	    	$("#searchBoxSection").addClass("enabled");
+	    	$("ul a").addClass("disabled");
+	    	$("ul a:first").addClass("enabled");
+	    	$("ul a:first").addClass("shownSearch");
+	    	$("#searchInputHeader").focus();
+	    }else{
+	    	$("#searchBoxSection").removeClass("enabled");
+	    	$("#searchBoxSection").addClass("disabled");
+	    	$("ul a").removeClass("disabled");
+	    	$("ul a:first").removeClass("shownSearch");
+	    }
+	});
+});
+
+</script>
 
 <body>
 
@@ -22,10 +41,16 @@ document.write("<style>header img {width: " + screen.width/4 + "px;}</style>")
 
 <nav>
 
-<img src='resources/img/main-logo.png'>
+<script>
+var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var d = new Date();
+document.write("<p class='dateText'>" + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear() + "</p>");
+</script>
+<img class='header-logo' src='resources/img/main-logo.png'>
 
 <ul>
 
+<a class='searchLink'>Search<span class='disabled' id='searchBoxSection'>:<input type='text' id='searchInputHeader' autofocus></span></a>
 <a>Latest News</a>
 <a>Bills</a>
 <a>Profiles</a>
