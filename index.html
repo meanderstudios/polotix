@@ -23,13 +23,19 @@ $(document).ready(function() {
 	    	$("#searchBoxSection").addClass("enabled");
 	    	$("ul a").addClass("disabled");
 	    	$("ul a:first").addClass("enabled");
+
 	    	$("ul a:first").addClass("shownSearch");
 	    	$("#searchInputHeader").focus();
+
+	    	$(".dropdown-content a").removeClass("disabled");
+	    	$(".dropdown-content a").addClass("enabled");
 	    }else{
 	    	$("#searchBoxSection").removeClass("enabled");
 	    	$("#searchBoxSection").addClass("disabled");
 	    	$("ul a").removeClass("disabled");
 	    	$("ul a:first").removeClass("shownSearch");
+	    	$(".dropdown-content a").removeClass("enabled");
+	    	$(".dropdown-content a").addClass("disabled");
 	    }
 	});
 });
@@ -45,13 +51,21 @@ $(document).ready(function() {
 <script>
 var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 var d = new Date();
-document.write("<p class='dateText'>" + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear() + "</p>");
+document.write("<p class='dateText'>" + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear() + "</p>");
 </script>
-<img class='header-logo' src='resources/img/main-logo.png'>
+<a href='/programming/polotix/index.html'><img class='header-logo' src='resources/img/main-logo.png'></a>
 
 <ul>
 
-<a class='searchLink'>Search<span class='disabled' id='searchBoxSection'>:<input type='text' id='searchInputHeader' autofocus></span></a>
+<a class='searchLink'>Search
+	<span class='disabled' id='searchBoxSection'>:<input type='text' autocorrect="off" spellcheck="false" id='searchInputHeader' autofocus>
+	</span>
+</a>
+<div class="dropdown-content">
+	<a href="#" class='disabled'>Link 1</a>
+	<a href="#" class='disabled'>Link 2</a>
+	<a href="#" class='disabled'>Link 3</a>
+</div>
 <a>Latest News</a>
 <a>Bills</a>
 <a>Profiles</a>

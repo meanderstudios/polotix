@@ -18,11 +18,6 @@ header .dateText {
 header nav {
 	width: 100vw;
 }
-header .searchLink img {
-	height: 5vh;
-	width: auto;
-	padding: 0px;
-}
 header .header-logo {
 	width: 25%;
 	padding-left: 5%;
@@ -34,8 +29,8 @@ header nav ul{
 	width: 100%;
 	text-align: center;
 	background-color: #0000cc;
-	padding: 2.5vh;
 	margin: 0px;
+	height: auto;
 }
 header nav ul a {
 	margin-left: 2.5vw;
@@ -46,6 +41,7 @@ header nav ul a {
 	border-left: 2px solid white;
 	border-right: 2px solid white;
 	transition-duration: 0.2s;
+	display: inline-block;
 }
 header nav ul a:hover{
 	border-left: 2px solid #bb0000;
@@ -54,15 +50,15 @@ header nav ul a:hover{
 	background-color: #bb0000;
 	cursor: pointer;
 }
-.searchLink {
+.shownSearch {
 	height: 100%;
 }
 header .searchLink input {
 	font-size: 100%;
 	margin-left: 1vw;
-	padding-left: 0.5%;
-	padding-right: 0.5%;
-	width: 50%;
+	padding-left: 0.5vw;
+	padding-right: 0.5vw;
+	width: 50vw;
 }
 .disabled {
 	display: none;
@@ -70,11 +66,81 @@ header .searchLink input {
 .enabled {
 	display: inline;
 }
+.searchLink.enabled {
+	display: inline-block;
+}
 .shownSearch {
 	background-color: #bb0000;
 	border: none;
+	display: inline-block;
+	margin: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 70vw;
 }
 .shownSearch:hover {
 	background-color: #bb0000;
 	border: none;
+}
+.suggestionsbox {
+    position: relative;
+    display: block;
+    z-index: 1;
+    text-align: center;
+    width: 50vw;
+    float: left;
+    margin-left: 10vw;
+}
+.suggestionsbox li {
+	display: block;
+	border: none;
+	text-align: center;
+	list-style: none;
+	padding: 0px;
+	width: auto;
+	margin: 0px;
+}
+.searchLink:hover .dropdown-content {
+	display: block;
+}
+.dropdown-content {
+	display: block;
+	width: 70%;
+	margin-left: 15%;
+	text-align: left;
+	position: absolute;
+}
+.dropdown-content a.enabled {
+	display: block;
+}
+.dropdown-content.disabled {
+	display: none;
+	width: 70vw;
+	border: none;
+	border-top: 2px solid white;
+}
+.dropdown-content a.disabled {
+	display: none;
+	width: 70vw;
+	border: none;
+	border-top: 2px solid white;
+}
+.dropdown-content a:hover {
+	border: none;
+	border-top: 2px solid white;
+	width: 75vw;
+	background-color: #0000cc;
+}
+.dropdown-content a {
+	width: 70vw;
+	margin: 0px;
+	height: 5vh;
+	padding-left: 0px;
+	padding-right: 0px;
+	border: none;
+	transition-duration: 0.2s;
+	background-color: #0000cc;
+	border-top: 2px solid white;
+	text-decoration: none;
+	display: block;
 }
