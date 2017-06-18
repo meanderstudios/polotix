@@ -6,7 +6,7 @@
   function getApi ($chamber, $datquery) {
     $ch = curl_init();
     $fullquery = $datquery . $chamber . "/bills/major.json";
-    curl_setopt($ch, CURLOPT_URL, $_ENV["datquery"]);
+    curl_setopt($ch, CURLOPT_URL, $_ENV["fullquery"]);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -22,7 +22,7 @@
         echo 'Error:' . curl_error($ch);
     }
     curl_close ($ch);
-    return $results;
+    return $result;
   }
   foreach ($chambers as $chamberiteration) {
     $json = json_decode(getApi ($chamberiteration, $query), true);
