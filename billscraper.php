@@ -27,7 +27,7 @@
   foreach ($chambers as $chamberiteration) {
     $json = json_decode(getApi ($chamberiteration, $query), true);
     for ($i = 0; $i < count($json['results']['bills']); $i++) {
-      $location = $json['results']['bills'][$i];
+      $location = $json['results'][0]['bills'][$i];
       $repeat = False;
       foreach ($location as $billcheck) {
         if ($billcheck['number'] == $location[$i]['number']) {
