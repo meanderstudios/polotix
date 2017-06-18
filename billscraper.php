@@ -11,9 +11,12 @@
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+
     $headers = array();
     $headers[] = "X-Api-Key: ng7dbvmURF4yv9GxugL0Z5y61GWWeL2Kawb5zb4P";
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
     $result = curl_exec($ch);
     if (curl_errno($ch)) {
         echo 'Error:' . curl_error($ch);
