@@ -6,18 +6,16 @@
   function getApi ($chamber, $datquery) {
     $ch = curl_init();
     $fullquery = $datquery . $chamber . "/bills/major.json";
-    curl_setopt($ch, CURLOPT_URL, $_ENV["fullquery"]);
+    curl_setopt($ch, CURLOPT_URL, $fullquery);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-
-
     $headers = array();
     $headers[] = "X-Api-Key: ng7dbvmURF4yv9GxugL0Z5y61GWWeL2Kawb5zb4P";
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
     $result = curl_exec($ch);
+
     if (curl_errno($ch)) {
         echo 'Error:' . curl_error($ch);
     }
@@ -26,7 +24,7 @@
   }
   foreach ($chambers as $chamberiteration) {
     $json = json_decode(getApi ($chamberiteration, $query), true);
-    for ($i = 0; $i < count($json['results']['bills']); $i++) {
+    for ($i = 0; $i < count($json['results'][0]['bills']); $i++) {
       $location = $json['results'][0]['bills'][$i];
       $repeat = False;
       foreach ($location as $billcheck) {
