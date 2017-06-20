@@ -1,0 +1,2 @@
+The specifics/members path is where auto generated pages for politicians exist. A new PHP page is created for a member every time a new one is scanned in a query. Please do not create any manual files, as it will greatly disrupt the system.
+NOTE: Not implemented in current edition.

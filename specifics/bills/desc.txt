@@ -1,0 +1,2 @@
+The specifics/bills path is where auto generated pages for bills exist. A new PHP page is created for a bill every time a new one is scanned in a query. Please do not create any manual files, as it will greatly disrupt the system.
+NOTE: Not implemented in current edition. 
