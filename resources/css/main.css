@@ -82,24 +82,6 @@ header .searchLink input {
 	background-color: #bb0000;
 	border: none;
 }
-.suggestionsbox {
-    position: relative;
-    display: block;
-    z-index: 1;
-    text-align: center;
-    width: 50vw;
-    float: left;
-    margin-left: 10vw;
-}
-.suggestionsbox li {
-	display: block;
-	border: none;
-	text-align: center;
-	list-style: none;
-	padding: 0px;
-	width: auto;
-	margin: 0px;
-}
 .searchLink:hover .dropdown-content {
 	display: block;
 }
@@ -131,10 +113,25 @@ header .searchLink input {
 	width: 75vw;
 	background-color: #0000cc;
 }
+.dropdown-content a:hover span{
+	width: 68.5vw;
+}
+.dropdown-content a span:hover {
+	width: 68.5vw;
+}
+.dropdown-content a span {
+	width: 63.5vw;
+	float: left;
+	margin-top: 2.5vh;
+	margin-bottom: 2.5vh;
+	line-height: 5vh;
+	padding-left: 1.5vw;
+}
 .dropdown-content a {
 	width: 70vw;
 	margin: 0px;
-	height: 5vh;
+	height: 10vh;
+	padding: 0px;
 	padding-left: 0px;
 	padding-right: 0px;
 	border: none;
@@ -142,5 +139,12 @@ header .searchLink input {
 	background-color: #0000cc;
 	border-top: 2px solid white;
 	text-decoration: none;
-	display: block;
+}
+.dropdown-content a .articleimg {
+	width: 5vw;
+	float: left;
+	margin-top: 0px;
+	height: 10vh;
+	background-color: red;
+	display: none;
 }

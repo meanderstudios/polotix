@@ -1,0 +1,10 @@
+SOURCES
+
+APIS
+ProPublica's Congress API
+
+JQUERY PLUGINS
+Dropdown Pro (TO install, check out Meander Studio's Source Code repo)
+
+CODE ASSISTANTS/RESOURCES
+curl to PHP (curltophp.com)
