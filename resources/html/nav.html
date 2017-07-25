@@ -1,0 +1,199 @@
+<meta charset='utf-8'>
+<style>
+header {
+	width: 100vw;
+	height: 15vh;
+	box-shadow: 0 0 6.5vh black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	float: left;
+}
+header .dateText {
+	position: absolute;
+	top: 1vw;
+	right: 1vw;
+	font-size: 1.6vw;
+	font-weight: 600;
+}
+nav {
+	width: 100vw;
+}
+nav a,nav input {
+	line-height: 8.5vh;
+	height: 8.5vh;
+	border-top: 0.75vh solid transparent;
+	border-bottom: 0.75vh solid #0000cc;
+	margin-top: 2.5vh;
+	display: inline-block;
+	font-size: 1.75vw;
+	padding: 0 1vw;
+	margin-left: 1vw;
+	font-weight: 600;
+	margin-right: 1vw;
+	color: inherit;
+	text-decoration: none;
+	float: left;
+	transition: border 0.2s;
+	background-color: transparent;
+}
+nav input{
+	width: 25vw;
+	border-bottom: 0.75vh solid #bb0000;
+}
+nav input:hover,nav input:focus{
+	border-top: 0.75vh solid #bb0000;
+}
+nav a:hover {
+	border-top: 0.75vh solid #0000cc;
+}
+nav h1 {
+	margin-top: 1.25vh;
+	margin-left: 1.25vh;
+	margin-bottom: 1.25vh;
+	margin-right: 1.25vh;
+	height: 12.5vh;
+	line-height: 12.5vh;
+	width: auto;
+	display: inline-block;
+	float: left;
+	font-size: 6vw;
+	color: #bb0000;
+}
+nav h1 span{
+	color: #0000cc;
+}
+nav h1:hover {
+	cursor: pointer;
+}
+.searchsuggestions {
+	width: calc(27vw - 1.5vh);
+	background-color: white;
+	list-style: none;
+	position: absolute;
+	top: 15vh;
+	border: 0.75vh solid #bb0000;
+	border-top: none;
+	border-bottom: none;
+	display: none;
+}
+.searchsuggestions li{
+	border-bottom: 0.75vh solid #bb0000;
+	padding: 1vh;
+	font-size: 1.5vw;
+	font-weight: normal;
+	transition: background-color 0.2s, color 0.2s;
+}
+nav input:focus ~ .searchsuggestions {
+	display: block;
+}
+.searchsuggestions:hover {
+	display: block;
+}
+.searchsuggestions li:hover{
+	cursor: pointer;
+	background-color: #bb0000;
+	color: white;
+}
+.searchsuggestions li.on {
+	background-color: #bb0000;
+	color: white;
+}
+</style>
+<header>
+
+<nav>
+
+<h1>Polo<span>Tix</span></h1>
+<span style='height: 15vh; display: inline-block;float: left; width: 5vw;'></span>
+<a href='#'>Bills</a>
+<a href='#'>News</a>
+<a href='#'>Politicians</a>
+<input type='text' placeholder="Search Polotix:" id='searchquery' onkeydown="parseSearchPress(this,event)">
+<ul class='searchsuggestions'>
+	<li>Hey</li>
+	<li>Hi</li>
+	<li>Hey</li>
+	<li>Hi</li>
+	<li>Hey</li>
+	<li>Hi</li>
+	<li>Hey</li>
+	<li>Hi</li>
+</ul>
+
+<script>
+var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var d = new Date();
+document.write("<p class='dateText'>" + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear() + "</p>");
+</script>
+
+</nav>
+
+<script type='text/javascript'>
+
+var currentsearchsuggestion = 0;
+
+function activateSearchSuggestion(theinput){
+	const suggestionsbox = document.getElementsByClassName("searchsuggestions")[0];
+	var allsuggestions = suggestionsbox.getElementsByTagName("li");
+	var i;
+	for(i=0;i<allsuggestions.length;i++){
+		allsuggestions[i].setAttribute("class","");
+	}
+	if(currentsearchsuggestion!=0){
+		theinput.focus();
+		allsuggestions[currentsearchsuggestion-1].setAttribute("class","on");
+		theinput.value = allsuggestions[currentsearchsuggestion-1].innerHTML;
+	}
+}
+function parseSearchPress(theinput,event){
+	const suggestionsbox = document.getElementsByClassName("searchsuggestions")[0];
+	var allsuggestions = suggestionsbox.getElementsByTagName("li");
+	
+	if(event.keyCode==40){
+		event.preventDefault();
+		if(currentsearchsuggestion!=allsuggestions.length){
+			currentsearchsuggestion++;
+			activateSearchSuggestion(theinput);
+		}
+	}
+	if(event.keyCode==38){
+		event.preventDefault();
+		if(currentsearchsuggestion!=0){
+			currentsearchsuggestion--;
+			activateSearchSuggestion(theinput);
+		}
+	}
+}
+
+</script>
+
+</header>
+<style id='searchsuggestionpos'>
+
+</style>
+<script type="text/javascript">
+function searchfix(){
+	var viewportOffset = document.getElementById("searchquery").getBoundingClientRect();
+	var fromright = viewportOffset.right;
+	var fromtop = viewportOffset.top;
+	document.getElementById("searchsuggestionpos").innerHTML = ".searchsuggestions { left: " + (fromright - (window.innerWidth * 0.27)) + "px; top: " + (fromtop + (window.innerHeight * 0.10)) + "px; }";
+}
+searchfix();
+document.body.onresize = function(){
+	searchfix();
+}
+var suggestionsarea = document.getElementsByClassName("searchsuggestions")[0];
+var allsuggestionsbtns = suggestionsarea.getElementsByTagName("li");
+var i;
+for(i=0;i<allsuggestionsbtns.length;i++){
+	allsuggestionsbtns[i].setAttribute("onclick","parseSearchClick(" + i + ")")
+}
+function parseSearchClick(suggestnum){
+	currentsearchsuggestion = suggestnum + 1;
+	activateSearchSuggestion(document.getElementById("searchquery"));
+}
+</script>
+
+<span style='height: 15vh; width: 100vw; display: block;'></span>
