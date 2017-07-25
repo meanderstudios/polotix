@@ -9,3 +9,31 @@ body {
 	overflow-x: hidden;
 	width: 100vw;
 }
+.newsfeedcontainer {
+	padding-left: 0.75vw;
+	padding-right: 0.75vw;
+	display: inline-block;
+	width: 98.5vw;
+}
+.newsfeedbox {
+	border: 0.25vw solid #bb0000;
+	margin: 0.75vw;
+	width: calc(92.5vw / 3);
+	height: calc(62.5vh - 2vw);
+	float: left;
+	display: inline-block;
+	position: relative;
+}
+.newsfeedbox h2 {
+	position: absolute;
+	bottom: 0;
+	padding: 1.5vw;
+	background-color: #0000cc;
+	opacity: 0.3;
+	width: calc(92.5vw / 3 - 3vw);
+	float: left;
+	text-shadow: 0 0 10vh black;
+	display: inline-block;
+	color: white;
+	text-align: left;
+}

@@ -16,7 +16,32 @@
 <body>
 
 <?php include "resources/html/nav.html"; ?>
-
+<div class='newsfeedcontainer'>
+	<div class='newsfeedbox'>
+		<h2>[HEADLINE HERE FOR READING! LOL]</h2>
+	</div>
+	<div class='newsfeedbox'>
+		<h2>[HEADLINE HERE FOR READING! LOL]</h2>
+	</div>
+	<div class='newsfeedbox'>
+		<h2>[HEADLINE HERE FOR READING! LOL]</h2>
+	</div>
+	<div class='newsfeedbox'>
+		<h2>[HEADLINE HERE FOR READING! LOL]</h2>
+	</div>
+	<div class='newsfeedbox'>
+		<h2>[HEADLINE HERE FOR READING! LOL]</h2>
+	</div>
+	<div class='newsfeedbox'>
+		<h2>[HEADLINE HERE FOR READING! LOL]</h2>
+	</div>
+	<div class='newsfeedbox'>
+		<h2>[HEADLINE HERE FOR READING! LOL]</h2>
+	</div>
+	<div class='newsfeedbox'>
+		<h2>[HEADLINE HERE FOR READING! LOL]</h2>
+	</div>
+</div>
 
 </body>
 
