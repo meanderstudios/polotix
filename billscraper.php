@@ -41,4 +41,6 @@
     }
   }
   echo '<pre>'; print_r($results); echo '</pre>';
+  //INDEXING SEGMENT
+  //This part inputs new bills/bill updates to the local database
 ?>
